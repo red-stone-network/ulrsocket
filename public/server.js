@@ -26,6 +26,10 @@ const server = http.createServer((req, res) => {
             <input type="text" id="shortcode" name="shortcode"><br>
             <input type="submit" value="Shorten My Url">
           </form>
+          <h6>
+      Licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
+      | <a href="https://github.com/red-stone-network/urlsocket/">Github Repository</a>
+    </h6>
           </center>
         </body>
       </html>
@@ -54,9 +58,9 @@ const server = http.createServer((req, res) => {
   </html>
 `;
 
-    res.statusCode = 400;
-    res.setHeader("Content-Type", "text/html");
-    res.end(responseHtml);
+      res.statusCode = 400;
+      res.setHeader("Content-Type", "text/html");
+      res.end(responseHtml);
       return;
     }
     if (shortcode in shortUrls) {
@@ -79,9 +83,9 @@ const server = http.createServer((req, res) => {
   </html>
 `;
 
-    res.statusCode = 409;
-    res.setHeader("Content-Type", "text/html");
-    res.end(responseHtml);
+      res.statusCode = 409;
+      res.setHeader("Content-Type", "text/html");
+      res.end(responseHtml);
       return;
     }
     shortUrls[shortcode] = url;
