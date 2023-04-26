@@ -12,4 +12,4 @@
 <p align="center">
   <a href="https://glitch.com/edit/#!/remix/urlsocket"><img height="30px" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg"><img></a>
 </p>
-<h6 align="center"><a href="https://github.com/red-stone-network/urlsocket/blob/main/license.md">UrlSocket is licensed under CC-BY-4.0.</a></h6>
+<h6 align="center"><a href="https://github.com/red-stone-network/ulrsocket/blob/main/license.md">UrlSocket is licensed under CC-BY-4.0.</a></h6>
