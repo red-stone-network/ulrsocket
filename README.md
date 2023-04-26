@@ -3,9 +3,9 @@
 </p>
 <h1 align="center">UrlSocket by Redstone Network</h1>
 
-<p align="center">A free simple url shortener.</p>
+<p align="center">A simple, free URL shortener.</p>
 
-<p align="center">All made using node-js.</p>
+<p align="center">All made using Node.js.</p>
 
 <p align="center"><a href="https://urlsocket.glitch.me/">Try it out here.</a></p>
 
