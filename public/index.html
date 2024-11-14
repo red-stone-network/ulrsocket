@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="https://cdn.glitch.global/a8ceb785-838a-49e6-bc77-4eadb6b7ea42/icon.png?v=1682510899456">
+    <title>URLSocket</title>
+
+    <link rel="preload" as="script" href="/assets/jquery.js">
+
+    <link rel="stylesheet" href="/assets/main.css">
+
+    <script src="/assets/jquery.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <h1>URLSocket</h1>
+        <p>A simple, free URL shortener in Node.js.</p>
+        <p><i>
+                WARNING! This is a work-in-progress 2.0 version of URLSocket.
+                If you're looking for the old version, check <a
+                    href="https://github.com/red-stone-network/urlsocket/tree/legacy-v1">
+                    here.</a>
+            </i></p>
+
+        <div id="create">
+            <label for="shortened-url">URL</label>
+            <input type="text" id="shortened-url">
+            <span class="invalid" id="shortened-url-invalid" style="display: none;">Invalid URL</span>
+            <span class="invalid" id="shortened-url-blocked" style="display: none;">URL is blocked</span>
+
+            <br>
+
+            <div class="url-name-box">
+                <span for="url-name">URL identifier <i>(optional)</i> <b
+                        title="The part after the slash, ex: https://short.url/ID-GOES-HERE"><u>?</u></b>:</span>
+                <input type="text" id="url-name">
+                <span class="invalid" id="url-name-characters" style="display: none;">URL contains invalid
+                    characters</span>
+            </div>
+
+            <br>
+
+            <div class="password-box" style="display: none;">
+                <span>Instance password:</span>
+                <input type="password" id="password">
+                <span class="invalid" id="password-incorrect">Password is incorrect</span>
+            </div>
+
+            <button id="submit">Shorten it!</button>
+        </div>
+        <h6>
+            <a href="https://github.com/red-stone-network/urlsocket/">Source Code</a>
+        </h6>
+    </div>
+    <script src="/assets/main.js"></script>
+</body>
+
+</html>

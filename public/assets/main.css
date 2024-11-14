@@ -1,0 +1,36 @@
+body {
+    background-color: #11110f;
+    color: #eea;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+}
+
+input[type=text],
+input[type=password] {
+    display: block;
+    border: 2px solid #eea;
+    background: none;
+    padding: 4px;
+    font-size: 19px;
+    font-family: Roboto, Arial, sans-serif;
+    border-radius: 8px;
+    color: #eea;
+}
+
+.invalid {
+    font-size: 16px;
+    color: rgb(222, 74, 74)
+}
+button {
+    display: block;
+    border: 2px solid #3c57cf;
+    border-radius: 8px;
+    padding: 4px;
+    font-size: 19px;
+    font-family: Roboto, Arial, sans-serif;
+    background: none;
+    color: #3c57cf;
+    cursor: pointer;
+    height: 30px;
+    width: 120px;
+}
