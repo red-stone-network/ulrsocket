@@ -17,7 +17,6 @@
   },
   "license": "GPL-3.0",
   "keywords": [
-    "node",
-    "glitch"
+    "node"
   ]
 }
