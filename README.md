@@ -21,16 +21,22 @@
   To manually set up this project on your own server:
 </p>
 
-<pre><code>
-# You should probably just clone the repo via Git. Makes it easier to update.
+<pre><code># You should probably just clone the repo via Git. Makes it easier to update.
 git clone https://github.com/red-stone-network/urlsocket.git
 cd urlsocket
 
 npm install
-npm start
-</code></pre>
+npm start</code></pre>
 
 <h2>Configuration</h2>
+
+<p>
+When you start URLSocket, it will automatically generate a config.js file for you.
+You can just edit the values in that generated config.js file to change settings.
+<i>DO NOT EDIT THE config.default.js FILE!</i>
+</p>
+
+<h2>License</h2>
 
 <h6 align="center">This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</h6>
 <h6 align="center">This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</h6>
