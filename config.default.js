@@ -2,30 +2,30 @@ const config = {
     password: null,
     // string, default value: null
     //
-    // set a password for creating new links, or set to a falsey value (null) to disable
+    // set a password for creating new links, or set to null to disable
 
     logUserData: false,
     // string, default value: false
     //
     // if true, user data will be logged when creating URLs. this only includes a user's IP and
-    // user-agent. Users visiting the link will not be logged.
+    // user-agent. Users visiting the link will not be logged
 
     port: 3000,
     // port number, default value: 3000
     //
     // set the port number for the frontend to be hosted on. you can also set it via the .env file,
-    // which will override this setting.
+    // which will override this setting
 
     allowNamedURLs: true,
     // boolean, default value: true
     //
     // if true, allows users to use custom names for their URLs 
-    // (ex: example.com/my-short-url instead of example.com/aMd3m).
+    // (ex: example.com/my-short-url instead of example.com/aMd3m)
 
     allowedRandomCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_",
     // string, default value: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
     //
-    // set the allowed characters in a randomly-generated URL.
+    // set the allowed characters in a randomly-generated URL
 
     URLNamePattern: "^[a-zA-Z0-9]*$",
     // string, default value: "^[a-zA-Z0-9]*$"
@@ -60,7 +60,8 @@ const config = {
     // boolean, default value: false
     //
     // when enabled, requires the user to click a button to be redirected to the
-    // target site. makes it harder to redirect to shady links
+    // target site. makes it harder to redirect to shady links. you should enable
+    // this if you're making your url shortener public!
 }
 
 module.exports = config

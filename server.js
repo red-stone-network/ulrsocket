@@ -67,12 +67,19 @@ app.get('/config.json', function (req, res) {
 
 
 app.post('/create-url', async function (req, res) {
-  console.log("NEW REQUEST", req.body.url)
+  console.log("New short URL request to "+req.body.url)
+
+  // This is a funky fix just so custom names being disabled is also disabled server-side
+  if (!config.allowNamedURLs) {
+    req.body.name = ""
+  }
 
   // validation #1: check if url is valid
 
   var test = /^(?:http[s]?:\/\/.)?(?:www\.)?[-a-zA-Z0-9@%._\+~#=]{2,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)$/gm.exec(req.body.url)
   if (!test) {
+    console.log("URL validation failed, aborting!")
+
     res.status(400).json({
       success: false,
       error: "url-invalid"
@@ -81,25 +88,29 @@ app.post('/create-url', async function (req, res) {
     return;
   }
 
-  console.log("pass")
+  console.log("URL validation check passed...")
 
   // validation #2: if name exists, check if name is valid
 
   var test = RegExp(config.URLNamePattern, "gm").exec(req.body.name)
   if (!test) {
+    console.log("Name validation failed, aborting!")
+
     res.status(500).json({
       success: false,
-      error: "url-invalid"
+      error: "name-invalid"
     })
 
     return
   }
 
-  console.log("pass")
+  console.log("Name validation passed...")
 
   // validation 3: if a password exists, check if it is correct
 
   if (config?.password && (req.body.password != config.password)) {
+    console.log("Password check failed, aborting!`")
+
     res.status(401).json({
       success: false,
       error: "password-incorrect"
@@ -108,7 +119,9 @@ app.post('/create-url', async function (req, res) {
     return
   }
 
-  console.log("pass")
+  if (config.password) {
+    console.log("Password check passed...")
+  }
 
   var name = req.body.name || await generateURLName()
 
