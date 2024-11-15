@@ -20,15 +20,9 @@
     <div class="content">
         <h1>URLSocket</h1>
         <p>A simple, free URL shortener in Node.js.</p>
-        <p><i>
-                WARNING! This is a work-in-progress 2.0 version of URLSocket.
-                If you're looking for the old version, check <a
-                    href="https://github.com/red-stone-network/urlsocket/tree/legacy-v1">
-                    here.</a>
-            </i></p>
 
         <div id="create">
-            <label for="shortened-url">URL</label>
+            <label for="shortened-url">URL:</label>
             <input type="text" id="shortened-url">
             <span class="invalid" id="shortened-url-invalid" style="display: none;">Invalid URL</span>
             <span class="invalid" id="shortened-url-blocked" style="display: none;">URL is blocked</span>
@@ -45,13 +39,26 @@
 
             <br>
 
-            <div class="password-box" style="display: none;">
+            <div id="password-box" style="display: none;">
                 <span>Instance password:</span>
                 <input type="password" id="password">
-                <span class="invalid" id="password-incorrect">Password is incorrect</span>
+                <span class="invalid" id="password-incorrect" style="display: none;">Password is incorrect</span>
+
+                <br>
             </div>
 
-            <button id="submit">Shorten it!</button>
+            <button id="submit" style="position: relative; left: 50%; transform: translateX(-50%)">Shorten it!</button>
+        </div>
+
+        <div id="url-created" style="display: none;">
+            <p>
+                Your new short URL is live at:
+            </p>
+            <p>
+                <a id="new-url-link" href="#"><code>https://test/test</code></a>
+            </p>
+
+            <button id="create-new-link" style="position: relative; left: 50%; transform: translateX(-50%)">Create another link</button>
         </div>
         <h6>
             <a href="https://github.com/red-stone-network/urlsocket/">Source Code</a>

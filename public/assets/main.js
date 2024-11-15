@@ -1,3 +1,5 @@
+var config = {}
+
 $("#url-name").on("input", (e)=>{
     var test = RegExp("^[a-zA-Z0-9]*$", "gm").exec($("#url-name").val())
     if (!test) {
@@ -16,6 +18,18 @@ $("#shortened-url").on("input", (e)=>{
     }
 })
 
+$("#password").on("input", (e)=>{
+    $("#password-incorrect").css("display", "none")
+})
+
+$("#create-new-link").on("click", (e)=>{
+    $("#url-created").css("display", "none")
+    $("#create").css("display", "block")
+
+    $("#shortened-url").val("")
+    $("#url-name").val("")
+})
+
 $("#submit").on("click", (e)=>{
     $.ajax({
         type: "POST",
@@ -26,7 +40,40 @@ $("#submit").on("click", (e)=>{
             password: $("#password").val(),
         },
         success: function(data) {
-            $("body").html(JSON.stringify(data));
+            try {
+                if (!data.success) {
+                    if (data.error == "password-incorrect") {
+                        $("#password-incorrect").css("display", "block")
+                    }
+                    return
+                }
+                var link = "https://" + document.location.host + "/" + data.name
+
+                $("#url-created").css("display", "block")
+                $("#create").css("display", "none")
+
+                $("#new-url-link").attr("href", link)
+                $("#new-url-link").text(link)
+
+                //$("body").html(JSON.stringify(data));
+            } catch(e) {
+                alert(e)
+            }
         }
     });
 })
+
+$.ajax({
+    type: "GET",
+    url: "/config.json",
+    success: function(data) {
+        try {
+            config = data
+            if (data.passwordProtected) {
+                $("#password-box").css("display", "block")
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
+});
