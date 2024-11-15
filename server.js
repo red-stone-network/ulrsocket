@@ -50,6 +50,7 @@ async function generateURLName() {                        // Handles generated U
 app.use(express.static("./public"))                     // push static site assets
 
 app.use(express.json());                              // make JSON request bodies work
+app.use(express.urlencoded());                      // removed this earlier, woops! :/
 
 app.set('trust proxy', true)                            // allows ip access through proxies
 
@@ -66,7 +67,7 @@ app.get('/config.json', function (req, res) {
 
 
 app.post('/create-url', async function (req, res) {
-  console.log("NEW REQUEST")
+  console.log("NEW REQUEST", req.body.url)
 
   // validation #1: check if url is valid
 
@@ -80,6 +81,8 @@ app.post('/create-url', async function (req, res) {
     return;
   }
 
+  console.log("pass")
+
   // validation #2: if name exists, check if name is valid
 
   var test = RegExp(config.URLNamePattern, "gm").exec(req.body.name)
@@ -92,6 +95,8 @@ app.post('/create-url', async function (req, res) {
     return
   }
 
+  console.log("pass")
+
   // validation 3: if a password exists, check if it is correct
 
   if (config?.password && (req.body.password != config.password)) {
@@ -102,6 +107,8 @@ app.post('/create-url', async function (req, res) {
 
     return
   }
+
+  console.log("pass")
 
   var name = req.body.name || await generateURLName()
 
