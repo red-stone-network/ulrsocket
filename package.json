@@ -15,7 +15,7 @@
   "repository": {
     "url": "https://glitch.com/edit/#!/urlsocket"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "keywords": [
     "node",
     "glitch"
